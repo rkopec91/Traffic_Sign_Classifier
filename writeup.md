@@ -115,7 +115,7 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image9] ![alt text][image10] ![alt text][image11]
 ![alt text][image12]
 
-The first image might be difficult to classify because ...
+All of these images could cause problems due to backgrounds and possibly orientations of the signs.  Sizes of the signs could also cause some issues.  In order to get these to sign to the right shape I needed to resize using numpys resize module.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -124,10 +124,12 @@ Here are the results of the prediction:
 | Image			|     Prediction	 			| 
 |:---------------------:|:---------------------------------------------:| 
 | Stop Sign      	| Stop sign                                     | 
-| U-turn     		| U-turn                                        |
-| Yield		        | Yield						|
-| 100 km/h	      	| Bumpy Road					|
-| Slippery Road		| Slippery Road      				|
+| Priority road		| Priority road                                 |
+| General Caution       | Ahead only					|
+| Stop  	      	| Right-of-way at next intersection		|
+| Speed limit (50km/h)	| Go straight or left 				|
+| Speed limit (70km/h)	| Speed limit (70km/h) 				|
+| Speed limit (30km/h)	| Pedestrians   				|
 
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
@@ -148,6 +150,69 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 
 For the second image ... 
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         		| Stop sign                                     | 
+| .20     		| U-turn                                        |
+| .05			| Yield					        |
+| .04	      		| Bumpy Road					|
+| .01		        | Slippery Road      				|
+
+For the second image ... 
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         		| Stop sign                                     | 
+| .20     		| U-turn                                        |
+| .05			| Yield					        |
+| .04	      		| Bumpy Road					|
+| .01		        | Slippery Road      				|
+
+
+For the second image ... 
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         		| Stop sign                                     | 
+| .20     		| U-turn                                        |
+| .05			| Yield					        |
+| .04	      		| Bumpy Road					|
+| .01		        | Slippery Road      				|
+
+
+For the second image ... 
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         		| Stop sign                                     | 
+| .20     		| U-turn                                        |
+| .05			| Yield					        |
+| .04	      		| Bumpy Road					|
+| .01		        | Slippery Road      				|
+
+
+For the second image ... 
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         		| Stop sign                                     | 
+| .20     		| U-turn                                        |
+| .05			| Yield					        |
+| .04	      		| Bumpy Road					|
+| .01		        | Slippery Road      				|
+
+
+For the second image ... 
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         		| Stop sign                                     | 
+| .20     		| U-turn                                        |
+| .05			| Yield					        |
+| .04	      		| Bumpy Road					|
+| .01		        | Slippery Road      				|
+
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
