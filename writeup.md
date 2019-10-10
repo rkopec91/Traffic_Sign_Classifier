@@ -24,13 +24,12 @@ The goals / steps of this project are the following:
 [image3]: ./test_data.png "Visualization"
 [image4]: ./examples/grayscale.jpg "Grayscaling"
 [image5]: ./examples/random_noise.jpg "Random Noise"
-[image6]: ./my_images/2_speedlimit50.jpeg "Traffic Sign 1"
-[image7]: ./my_images/4_speedlimit70.jpeg "Traffic Sign 2"
-[image8]: ./my_images/12_priorityroad.jpeg "Traffic Sign 3"
-[image9]: ./my_images/14_stop.jpeg "Traffic Sign 4"
-[image10]: ./my_images/14_stop2.jpeg "Traffic Sign 5"
-[image11]: ./my_images/18_GeneralCaution.jpeg "Traffic Sign 6"
-[image12]: ./my_images/27_Pedestrians.jpeg "Traffic Sign 7"
+[image6]: ./my_images/4_speedlimit70.png "Traffic Sign 1"
+[image7]: ./my_images/12_priorityroad.png "Traffic Sign 2"
+[image8]: ./my_images/14_stop.png "Traffic Sign 3"
+[image9]: ./my_images/27_Pedestrians.png "Traffic Sign 4"
+[image10]: ./my_images/2_speedlimit50.png "Traffic Sign 5"
+[image11]: ./my_images/14_stop2.png "Traffic Sign 6"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -99,8 +98,8 @@ To train the model, I decided to run the model through 100 epochs with a batch s
 
 My final model results were:
 * training set accuracy of 1.0
-* validation set accuracy of 0.954 
-* test set accuracy of 0.943
+* validation set accuracy of 0.962 
+* test set accuracy of 0.941
 
 I chose to go with a lenet architecture.  I chose this because it would give good results.  It had been proven to output great accuracy for the mnist dataset so it should work well on this dataset.  These were all high accuracies.  They all (training, validation, and test sets) scored over 94 percent accuracy ratings.  This proves that the model performs well.
  
@@ -113,7 +112,6 @@ Here are five German traffic signs that I found on the web:
 
 ![alt text][image6] ![alt text][image7] ![alt text][image8] 
 ![alt text][image9] ![alt text][image10] ![alt text][image11]
-![alt text][image12]
 
 All of these images could cause problems due to backgrounds and possibly orientations of the signs.  Sizes of the signs could also cause some issues.  In order to get these to sign to the right shape I needed to resize using numpys resize module.
 
@@ -122,96 +120,84 @@ All of these images could cause problems due to backgrounds and possibly orienta
 Here are the results of the prediction:
 
 | Image			|     Prediction	 			| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      	| Stop sign                                     | 
-| Priority road		| Priority road                                 |
-| General Caution       | Ahead only					|
-| Stop  	      	| Right-of-way at next intersection		|
-| Speed limit (50km/h)	| Go straight or left 				|
-| Speed limit (70km/h)	| Speed limit (70km/h) 				|
-| Speed limit (30km/h)	| Pedestrians   				|
+|:---------------------:|:---------------------------------------------:|
+| Speed limit (70km/h)	| General Caution 				|
+| Priority road		| Priority road                                 | 
+| Stop Sign      	| Stop Sign                                     | 
+| Pedestrians		| Pedestrians	 				|
+| Speed limit (50km/h)	| Speed limit (30km/h) 				|
+| Stop  	      	| Stop sign    					|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 4 of the 6 traffic signs, which gives an accuracy of 60%. As you can see there is a drop in the accuracy.  The evaluation functions prints out an accuracy of 0.667 which is close to 70 percent.  This model could be improved.  I believe it has to do with the training images.  I had to resize my images in order to fit the model would have distorted the input images a bit which could be the cause of this error.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 19th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        		| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         		| Stop sign                                     | 
-| .20     		| U-turn                                        |
-| .05			| Yield					        |
-| .04	      		| Bumpy Road					|
-| .01		        | Slippery Road      				|
-
-
-For the second image ... 
+The first image is supposed to be a Speed limit of 70 km/h but it classifies it as General caution.  As you can see, three out of the 5 top predictions are speed limit signs.  This could be due to when I resize the images.
 
 | Probability         	|     Prediction	        		| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         		| Stop sign                                     | 
-| .20     		| U-turn                                        |
-| .05			| Yield					        |
-| .04	      		| Bumpy Road					|
-| .01		        | Slippery Road      				|
-
-For the second image ... 
-
-| Probability         	|     Prediction	        		| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         		| Stop sign                                     | 
-| .20     		| U-turn                                        |
-| .05			| Yield					        |
-| .04	      		| Bumpy Road					|
-| .01		        | Slippery Road      				|
+| 9.9642086e-01         | General Caution                               | 
+| 3.5462568e-03     	| Speed limit (30km/h)                          |
+| 3.2931061e-05		| Speed limit (60km/h)			        |
+| 2.2467528e-16	      	| Turn right ahead				|
+| 1.4970470e-18		| Speed limit (70km/h) 				|
 
 
-For the second image ... 
+For the second image the classification is correct.  It was a picture of a priority road sign and it predicts a priority road sign. 
 
 | Probability         	|     Prediction	        		| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         		| Stop sign                                     | 
-| .20     		| U-turn                                        |
-| .05			| Yield					        |
-| .04	      		| Bumpy Road					|
-| .01		        | Slippery Road      				|
+| 1.0000000e+00         | Priority road                                 | 
+| 1.4484895e-08     	| No vehicles                                   |
+| 7.0362488e-10		| Yield					        |
+| 6.2270211e-10	      	| Ahead Only					|
+| 1.0804689e-10		| End of all speed and passing limits		|
 
-
-For the second image ... 
-
-| Probability         	|     Prediction	        		| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         		| Stop sign                                     | 
-| .20     		| U-turn                                        |
-| .05			| Yield					        |
-| .04	      		| Bumpy Road					|
-| .01		        | Slippery Road      				|
-
-
-For the second image ... 
+The third image is of a stop sign.  This is classified correctly 
 
 | Probability         	|     Prediction	        		| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         		| Stop sign                                     | 
-| .20     		| U-turn                                        |
-| .05			| Yield					        |
-| .04	      		| Bumpy Road					|
-| .01		        | Slippery Road      				|
+| 1.0000000e+00         | Stop sign                                     | 
+| 1.1274519e-16     	| Keep Right                                    |
+| 5.5151633e-21		| Speed limit (50km/h)			        |
+| 1.7767238e-24	      	| Traffic Signals				|
+| 4.8808793e-26		| Speed limit (30km/h)  			|
 
 
-For the second image ... 
+The fourth image is of a Pedestrian sign and it is classified properly. 
 
 | Probability         	|     Prediction	        		| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         		| Stop sign                                     | 
-| .20     		| U-turn                                        |
-| .05			| Yield					        |
-| .04	      		| Bumpy Road					|
-| .01		        | Slippery Road      				|
+| 9.9999976e-01         | Pedestrians                                   | 
+| 2.3396342e-07     	| Right-of-way at the next intersection         |
+| 9.7348857e-20		| General Caution			        |
+| 6.5917227e-22	      	| Road narrows on the right			|
+| 4.7000964e-25		| Road Work	    				|
+
+
+The fifth image is of a speed limit sign of 50 km/h.  As you can see this was not classified properly.  I believe this is due to the distortion when the image is resized. 
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0000000e+00         | Speed limit (30km/h)                          | 
+| 2.7564859e-10     	| General Caution                               |
+| 1.8443607e-23		| Roundabout mandatory			        |
+| 4.0170159e-26	      	| Go straight or left				|
+| 2.4100759e-29		| Speed limit (70km/h)				|
+
+
+The sixth and final image is of a stop sign.  This is classified properly.  The other predictions are of speed limit signs which is interesting.
+
+| Probability         	|     Prediction	        		| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0000000e+00         | Stop sign                                     | 
+| 2.2751899e-11     	| Speed limit (50km/h)                          |
+| 1.1930331e-14		| Speed limit (80km/h)			        |
+| 3.3611495e-17	      	| Speed limit (30km/h)				|
+| 1.1043199e-19		| Speed limit (70km/h) 				|
 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
